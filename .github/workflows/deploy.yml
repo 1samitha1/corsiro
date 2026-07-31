@@ -7,16 +7,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: corsiro-github-pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,38 +26,23 @@ jobs:
           node-version: "22"
           cache: npm
 
-      - name: Debug environment
-        run: |
-          node -v
-          npm -v
-          ls -la package.json package-lock.json
-
       - name: Install dependencies
         run: npm install --no-fund --no-audit
 
       - name: Build
         run: npm run build
 
-      - name: Add SPA 404 fallback and .nojekyll
+      - name: Prepare Pages files
         run: |
           cp dist/index.html dist/404.html
           touch dist/.nojekyll
+          # Ensure custom domain is published with the built site
+          echo "corsiro.com" > dist/CNAME
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: ./dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          cname: corsiro.com
+          force_orphan: true
