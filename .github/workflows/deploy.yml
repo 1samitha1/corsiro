@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: corsiro-github-pages
   cancel-in-progress: true
 
 jobs:
@@ -20,29 +20,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: "22"
           cache: npm
 
+      - name: Debug environment
+        run: |
+          node -v
+          npm -v
+          ls -la package.json package-lock.json
+
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-fund --no-audit
 
       - name: Build
         run: npm run build
 
-      # SPA fallback: GitHub Pages serves 404.html for unknown paths
-      - name: Add SPA 404 fallback
-        run: cp dist/index.html dist/404.html
+      - name: Add SPA 404 fallback and .nojekyll
+        run: |
+          cp dist/index.html dist/404.html
+          touch dist/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
