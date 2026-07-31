@@ -24,7 +24,7 @@ function NotFound() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/corsiro">
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
