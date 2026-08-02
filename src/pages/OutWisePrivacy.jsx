@@ -271,6 +271,10 @@ export default function OutWisePrivacy() {
               <Link to="/products/outwise/terms" className="text-teal hover:underline">
                 OutWise Terms of Service
               </Link>
+              . To remove your account, see{' '}
+              <Link to="/products/outwise/account-delete" className="text-teal hover:underline">
+                Delete Your OutWise Account
+              </Link>
               .
             </p>
           </section>

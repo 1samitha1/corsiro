@@ -99,6 +99,12 @@ export default function OutWise() {
               >
                 Terms of Service
               </Link>
+              <Link
+                to="/products/outwise/account-delete"
+                className="inline-flex items-center justify-center rounded-xl border border-white/20 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/5"
+              >
+                Delete Account
+              </Link>
             </div>
           </div>
           <PhoneMockup />

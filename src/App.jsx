@@ -9,6 +9,7 @@ import Terms from './pages/Terms'
 import OutWise from './pages/OutWise'
 import OutWisePrivacy from './pages/OutWisePrivacy'
 import OutWiseTerms from './pages/OutWiseTerms'
+import OutWiseAccountDelete from './pages/OutWiseAccountDelete'
 
 function NotFound() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="products/outwise" element={<OutWise />} />
           <Route path="products/outwise/privacy" element={<OutWisePrivacy />} />
           <Route path="products/outwise/terms" element={<OutWiseTerms />} />
+          <Route path="products/outwise/account-delete" element={<OutWiseAccountDelete />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="privacy" element={<Privacy />} />
