@@ -30,13 +30,11 @@ jobs:
         run: npm install --no-fund --no-audit
 
       - name: Build
-        run: npm run build
+        run: npm run build:pages
 
       - name: Prepare Pages files
         run: |
-          cp dist/index.html dist/404.html
           touch dist/.nojekyll
-          # Ensure custom domain is published with the built site
           echo "corsiro.com" > dist/CNAME
 
       - name: Deploy to gh-pages
