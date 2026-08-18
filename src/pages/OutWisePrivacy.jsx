@@ -244,6 +244,10 @@ export default function OutWisePrivacy() {
             <p>We may update this Privacy Policy periodically.</p>
             <p className="mt-3">
               The latest version will always be available at{' '}
+              <a href="https://corsiro.com/outwise-privacy.html" className="text-teal hover:underline">
+                corsiro.com/outwise-privacy.html
+              </a>{' '}
+              and{' '}
               <Link to="/products/outwise/privacy" className="text-teal hover:underline">
                 corsiro.com/products/outwise/privacy
               </Link>
