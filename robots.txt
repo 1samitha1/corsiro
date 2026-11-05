@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://corsiro.com/outwise-privacy.html
