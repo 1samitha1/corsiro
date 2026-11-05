@@ -3,6 +3,9 @@ import outwiseScreenshot from '../assets/outwise-screenshot.png'
 import outwiseScreenshot2 from '../assets/outwise-screenshot2.png'
 import outwiseScreenshot3 from '../assets/outwise-screenshot3.png'
 
+const appStoreUrl = 'https://apps.apple.com/au/app/outwise/id6821510890'
+const googlePlayUrl = 'https://play.google.com/store/apps/details?id=com.corsiro.outwise'
+
 function PhoneMockup() {
   return (
     <div className="relative mx-auto flex w-full max-w-[480px] items-end justify-center pb-2">
@@ -67,7 +70,9 @@ export default function OutWise() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <a
-                href="#download"
+                href={googlePlayUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold text-white transition hover:brightness-110"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden>
@@ -81,12 +86,17 @@ export default function OutWise() {
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
               </a>
-              <span className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-slate-400">
+              <a
+                href={appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-slate-300 transition hover:bg-white/10"
+              >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
                 </svg>
-                iOS — Coming Soon
-              </span>
+                Download on the App Store
+              </a>
               <Link
                 to="/products/outwise/privacy"
                 className="inline-flex items-center justify-center rounded-xl border border-white/20 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/5"
@@ -260,7 +270,9 @@ export default function OutWise() {
           </p>
           <div className="relative mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="#"
+              href={googlePlayUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl bg-cyan px-6 py-3.5 text-sm font-semibold text-navy transition hover:brightness-110"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden>
@@ -271,9 +283,14 @@ export default function OutWise() {
               </svg>
               Get it on Google Play
             </a>
-            <span className="rounded-xl border border-white/40 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white/70">
-              iOS — Coming Soon
-            </span>
+            <a
+              href={appStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-xl border border-white/40 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/20"
+            >
+              Download on the App Store
+            </a>
             
           </div>
         </div>
